@@ -1,3 +1,4 @@
+:start
 set live_endpoint http://10.216.2.20
 set squash_url ${live_endpoint}/ubuntu-iscsi/filesystem.squashfs
 set kernel_url ${live_endpoint}/ubuntu-iscsi/
