@@ -4,8 +4,13 @@
 ###
 
 :start
-echo Hello world!
-sleep 10
+set live_endpoint http://10.216.2.20
+set squash_url ${live_endpoint}/ubuntu-iscsi/filesystem.squashfs
+set kernel_url ${live_endpoint}/ubuntu-iscsi/
+imgfree
+kernel ${kernel_url}vmlinuz ip=dhcp ${cmdline} ISCSI_TARGET_IP=10.216.2.20 ISCSI_TARGET_PORT=3260 ISCSI_INITIATOR=10.216.2.20:ubuntu-client-1 ISCSI_TARGET=10.216.2.20:lun1 root=UUID=bb0e2dd6-70bb-4371-bc0e-746eceef60d7 rw
+initrd ${kernel_url}initrd.img
+boot
 goto custom_exit
 
 :custom_exit
